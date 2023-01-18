@@ -1,9 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
     <head>
-        <title>-</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <title>Калькулятор вступу рішення в дію</title>
     </head>
     <body>
-        <p>-</p>
+        <section class="calc">
+            <div class="container text-center">
+                <div class="row justify-content-md-center my-4"></div>
+                <div class="row justify-content-md-center my-4"></div>
+                <div class="row justify-content-md-center my-4">
+                    <div class="alert alert-light" role="alert">
+                        <h1 class="">Калькулятор вступу рішення в дію <span class="badge bg-secondary">beta</span></h1>
+                   </div>
+                </div>
+                <div class="row justify-content-md-center my-1">
+                    <div class="col">
+                        <p class="fs-4 fw-semibold">Вкажіть день винесення вироку</p>
+                    </div>
+                </div>
+                <div class="row justify-content-sm-center my-3">
+                    <div class="col col-sm-1">
+                        <div class="input-group input-group mx-1">
+                            <input type="text" class="form-control" placeholder="День" aria-label="Day" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                    <div class="col col-md-1">
+                        <div class="input-group input-group mx-1">
+                            <input type="text" class="form-control" placeholder="Місяць" aria-label="Month" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                    <div class="col col-md-1">
+                        <div class="input-group input-group mx-1">
+                            <input type="text" class="form-control" placeholder="Рік" aria-label="Year" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4 justify-content-md-center">
+                    <div class="col">
+                        <p class="fs-6">Для прораховування натисніть "Прорахувати"</p>
+                    </div>
+                </div>
+                <div class="row my-3 justify-content-md-center">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary">Прорахувати</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="date_counter.js"></script>
     </body>
 </html>
