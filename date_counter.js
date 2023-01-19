@@ -59,7 +59,7 @@ function dateCounter() {
 }
 
 function wrongAlert() {
-    alert("You've typed wrond day/month/year");
+    alert("Неправильно введено день, місяць чи рік");
 }
 
 function addDays(date, days) {
