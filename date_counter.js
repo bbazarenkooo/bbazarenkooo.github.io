@@ -12,41 +12,39 @@ function dateCounter() {
         return;
     }
     if((year < 2000) || (year > 2300)) {
-        wrongAlert;
+        wrongAlert();
         return;
     }
 
     var date = new Date(year, month, day);
     const dayWeek = date.getDay();
-    alert(date);
+    var dayName;
 
     switch(dayWeek) {
         case 0:
-            alert("Sunday");
+            dayName = "Неділя";
             break;
         case 1:
-            alert("Monday");
+            dayName = "Понеділок";
             break;
         case 2:
-            alert("Tuesday");
+            dayName = "Вівторок";
             break;
         case 3:
-            alert("Wednesday");
+            dayName = "Середа"; 
             break;
         case 4:
-            alert("Thursday");
+            dayName = "Четвер";
             break;
         case 5:
-            alert("Friday");
+            dayName = "П'ятниця";  
             break;
         case 6:
-            alert("Saturday");
+            dayName = "Субота";
             break;
-    }
-
+    } 
     date = addDays(date, 1);
     date = addDays(date, 30);
-    alert(date);
 
     if(date.getDay() == 6) {
         date = addDays(date,2)
@@ -57,10 +55,7 @@ function dateCounter() {
         date = addDays(date,1);
     }
 
-
-
-    alert(date);
-
+    show(date, dayName);
 }
 
 function wrongAlert() {
@@ -72,3 +67,8 @@ function addDays(date, days) {
     result.setDate(result.getDate() + days);
     return result;
   }
+
+function show(date, dayName) {
+    var month = parseInt(date.getMonth()) + 1;
+    document.getElementById("res").innerHTML = "(" + dayName + ") " + date.getDate()+ " . " + month + " . " + date.getFullYear() ;
+}
