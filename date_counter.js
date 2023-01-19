@@ -47,6 +47,8 @@ function dateCounter() {
 
 function checkDate(day, month, year) {
     if ((day < 0) || (day > 31)) {
+        alert("Неправильно введено день, місяць чи рік");
+        return;
     }
     if ((month < 0) || (month > 12)) {
         alert("Неправильно введено день, місяць чи рік");
