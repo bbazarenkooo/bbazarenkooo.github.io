@@ -15,7 +15,7 @@ function dateCounter() {
         date = addDays(date, 2);
     }
     if (date.getDay() == 0) {
-        date = addDays(date, 2);
+        date = addDays(date, 1);
     }
 
     switch(date.getDay()) {
