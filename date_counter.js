@@ -8,7 +8,6 @@ function dateCounter() {
     var date = new Date(year, month, day);
     var dayName;
 
-    date = addDays(date, 1);
     date = addDays(date, 31);
     
     if (date.getDay() == 6) {
