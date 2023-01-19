@@ -10,7 +10,6 @@ function dateCounter() {
 
     date = addDays(date, 1);
     date = addDays(date, 31);
-    alert(date.getDay());
     
     if (date.getDay() == 6) {
         date = addDays(date, 2);
@@ -42,7 +41,7 @@ function dateCounter() {
             dayName = "Субота";
             break;
     }
-    
+
     show(date, dayName);
 }
 
