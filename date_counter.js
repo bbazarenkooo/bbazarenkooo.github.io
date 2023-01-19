@@ -3,24 +3,23 @@ function dateCounter() {
     var month = document.getElementById("month").value - 1;
     var year = document.getElementById("year").value;
     
-    if ((day < 0) || (day > 31)) {
-        wrongAlert();
-        return;
-    }
-    if ((month < 0) || (month > 12)) {
-        wrongAlert();
-        return;
-    }
-    if((year < 2000) || (year > 2300)) {
-        wrongAlert();
-        return;
-    }
+    checkDate(day, month, year);
 
     var date = new Date(year, month, day);
-    const dayWeek = date.getDay();
     var dayName;
 
-    switch(dayWeek) {
+    date = addDays(date, 1);
+    date = addDays(date, 31);
+    alert(date.getDay());
+    
+    if (date.getDay() == 6) {
+        date = addDays(date, 2);
+    }
+    if (date.getDay() == 0) {
+        date = addDays(date, 2);
+    }
+
+    switch(date.getDay()) {
         case 0:
             dayName = "Неділя";
             break;
@@ -42,24 +41,22 @@ function dateCounter() {
         case 6:
             dayName = "Субота";
             break;
-    } 
-    date = addDays(date, 1);
-    date = addDays(date, 30);
-
-    if(date.getDay() == 6) {
-        date = addDays(date,2)
-    } else
-        if (date.getDay() == 0) {
-            date = addDays(date,1);
-    } else {
-        date = addDays(date,1);
     }
-
+    
     show(date, dayName);
 }
 
-function wrongAlert() {
-    alert("Неправильно введено день, місяць чи рік");
+function checkDate(day, month, year) {
+    if ((day < 0) || (day > 31)) {
+    }
+    if ((month < 0) || (month > 12)) {
+        alert("Неправильно введено день, місяць чи рік");
+        return;
+    }
+    if((year < 2000) || (year > 2300)) {
+        alert("Неправильно введено день, місяць чи рік");
+        return;
+    }
 }
 
 function addDays(date, days) {
@@ -69,6 +66,15 @@ function addDays(date, days) {
   }
 
 function show(date, dayName) {
+    document.getElementById("res").innerHTML = "";
     var month = parseInt(date.getMonth()) + 1;
-    document.getElementById("res").innerHTML = "(" + dayName + ") " + date.getDate()+ " . " + month + " . " + date.getFullYear() ;
+    var message = "(" + dayName + ") " + date.getDate()+ "." + month + "." + date.getFullYear();
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `<div class="alert alert-light alert" role="alert">`,
+        `   <div>${message}</div>`,
+        '</div>'
+      ].join('');
+
+      document.getElementById("res").append(wrapper);
 }
